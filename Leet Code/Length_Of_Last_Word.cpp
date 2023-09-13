@@ -5,7 +5,7 @@ using namespace std;
 int lengthOfLastWord(string s)
 {
     int max = 0;
-    for (int i=s.size()-1 ; i>-1 ; i--)
+    for (short i=s.size()-1 ; i>-1 ; i--)
     {
         if(s[i] != ' ')
         {
