@@ -302,4 +302,161 @@ int main() {
 //		}
 //	}
 //	This is called count sort algorithm. The most efficient if values are small.
+//
+///////////////////////////////////////////////////////////////////////////////// Hard Level ////////////////////////////////////////////////////////////////////////////////////////////////////////
+//	/*
+//	 * Recaman's sequence
+//	 */
+//	int size {201}, freq[300] {0}; // freq array can be N*10 better to not be hard coded
+//	int seq[size] {0};
+//	for(int i=1 ; i<size ; i++)
+//	{
+//		int value = seq[i-1] - (i-1) -1;
+//		if(  value > 0 && freq[value] == 0)
+//		{
+//			seq[i] = value;
+//		}
+//		else
+//		{
+//			value = seq[i-1] + (i-1) +1;
+//			seq[i] = value;
+//		}
+//		freq[value]++;
+//	}
+//	int idx {0};
+//	cin >> idx;
+//	cout << seq[idx];
+//
+//
+//	/*
+//	 * Fixed sliding window
+//	 */
+//	int K, N, idx{0}, sum {0};
+//	while(K>N)
+//	{
+//		cin >> K;
+//		cin >> N;
+//	}
+//	int arr[N];
+//	for(int i=0 ; i<N ; i++)
+//	{
+//		cin >> arr[i];
+//	}
+//	sum = arr[0] + arr[1] + arr[2];
+//	for(int i=2 ; i<N-1 ; i++)
+//	{
+//		if( (sum - arr[i-2] + arr[i+1 ]) > sum)
+//		{
+//			sum = sum - arr[i-2] + arr[i+1];
+//			idx = i;
+//		}
+//	}
+//
+//	cout << idx-1 << " " << idx << " " << idx+1;
+//
+//
+//	/*
+//	 * Count increasing subaarrays
+//	 */
+//	int arr[200], N, no_of_arr {0}, count {1};
+//	cin >> N;
+//	no_of_arr = N;
+//	cin >> arr[0];
+//	for(int i=1 ; i<N ; i++)
+//	{
+//		cin >> arr[i];
+//		if(arr[i] > arr[i-1])
+//		{
+//			count++;
+//			if(i == N-1)
+//			{
+//				no_of_arr += (count*(count-1)) / 2;
+//				count = 1;
+//			}
+//		}
+//		else
+//		{
+//			no_of_arr += (count*(count-1)) / 2;
+//			count = 1;
+//		}
+//	}
+//	cout << no_of_arr;
+//
+//
+//	/*
+//	 * Josephus problem
+//	 */
+//	int N,K;
+//	cin >> N >> K;
+//	int arr[N] {0}, ans[N] {0};
+//	for(int i=0 ; i<N ; i++)
+//	{
+//		arr[i] = i+1;
+//	}
+//	int temp = N, count {1};
+//	while(temp)
+//	{
+//		for(int j=0 ; j<N ; j++)
+//		{
+//			if(arr[j] != 0)
+//			{
+//				if(count == K)
+//				{
+//					ans[N-temp] = arr[j];
+//					temp--;
+//					arr[j] = 0;
+//					count = 1;
+//				}
+//				else
+//					count++;
+//			}
+//		}
+//	}
+//	for(int i=0 ; i<N ; i++)
+//	{
+//		cout << ans[i] << " ";
+//	}
+//
+//
+//	/*
+//	 * Longest subarray
+//	 */
+//	int arr[1000] {0}, N, num_zeros {0}, num_ones {0}, min{0}, sum{0};
+//	cin >> N;
+//	for(int i=0 ; i<N ; i++)
+//	{
+//		cin >> arr[i];
+//		num_zeros += arr[i] == 0;
+//		num_ones += arr[i] == 1;
+//	}
+//	if(num_zeros < num_ones)
+//		min = num_zeros+1;
+//	else
+//		min = num_ones+1;
+//	while(sum != min)
+//	{
+//		sum = 0;
+//		min--;
+//		for(int i=0 ; i<N ; i++)
+//		{
+//			if( i < (2*min)-1 )
+//				sum += arr[i];
+//			else if( i == (2*min)-1 )
+//			{
+//				sum += arr[i];
+//				if(sum == min)
+//					break;
+//			}
+//			else
+//			{
+//				sum -= arr[ i-(2*min) ];
+//				sum += arr[i];
+//				if(sum == min)
+//					break;
+//			}
+//		}
+//	}
+//	cout << min*2;
+//
+//
 }
